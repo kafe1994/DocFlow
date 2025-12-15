@@ -7,8 +7,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
-      // Esto permite que 'process.env' funcione en tu código existente
-      'process.env': env
+      // Correctly stringify the env object for replacement
+      'process.env': JSON.stringify(env)
     },
     build: {
       outDir: 'dist',

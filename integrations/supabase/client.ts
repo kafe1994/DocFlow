@@ -10,12 +10,14 @@ const getEnvVar = (key: string): string | undefined => {
       return import.meta.env[key];
     }
   } catch (e) {
-    // Ignore error if import.meta is accessed in environment where it doesn't exist
+    // Ignore error
   }
 
-  // Check for Next.js / Node (process.env)
+  // Check for process.env (handled by Vite define replacement)
   try {
-    if (typeof process !== 'undefined' && process.env && process.env[key]) {
+    // Direct access to process.env properties which Vite replaces at build time
+    // We access it as 'process.env' so the token is matched
+    if (process.env && process.env[key]) {
       return process.env[key];
     }
   } catch (e) {
