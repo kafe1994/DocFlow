@@ -1,7 +1,0 @@
-{
-  "name": "FlowDoc",
-  "description": "Plataforma moderna de gestión psiquiátrica integrada con IA.",
-  "requestFramePermissions": [
-    "microphone"
-  ]
-}
